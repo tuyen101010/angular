@@ -1,0 +1,58 @@
+﻿<div appBsModal #editModal="bs-modal" (onShown)="onShown()" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="editModal" aria-hidden="true" [config]="{ backdrop: 'static', keyboard: !saving }">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <span>{{ 'GroupJobSettingTenant' | localize }}: {{ tenancyNameShow }}</span>
+                </h5>
+                <button type="button" class="btn-close" (click)="close()" [attr.aria-label]="l('Close')"
+                    [disabled]="saving">
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row mb-4" *ngFor="let item of listItem">
+                    <div class="col-xl-3">
+                        <label>{{ 'GroupJob_pageIndex' | localize }}</label>
+                        <input type="text" class="form-control" [(ngModel)]="item.pageIndex" disabled />
+                    </div>
+                    <div class="col-xl-4">
+                        <label>{{ 'GroupJob_PageMenuKey' | localize }} <span style="color: brown;">*</span></label>
+                        <input type="text" class="form-control" [(ngModel)]="item.pageMenuKey" maxlength="256"
+                            placeholder="{{ 'GroupJob_PageMenuKey' | localize }}" />
+                    </div>
+                    <div class="col-xl-4">
+                        <label>{{ 'GroupJob_PageTitleKey' | localize }}</label>
+                        <input type="text" class="form-control" [(ngModel)]="item.pageTitleKey" maxlength="256"
+                            placeholder="{{ 'GroupJob_PageMenuKey' | localize }}" />
+                    </div>
+                    <div class="col-xl-1" style="padding-top: 24px;">
+                        <button type="button" class="btn btn-danger btn-sm only-icon"
+                            (click)="onRemoveItem(item.pageIndex)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-xl-4">
+                        <button type="button" class="btn btn-primary" (click)="onAddItem()">
+                            <i class="fa fa-plus"></i>
+                            <span>{{ 'Add' | localize }}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" [disabled]="saving" class="btn btn-light-primary fw-bold" (click)="close()">
+                    {{ 'Cancel' | localize }}
+                </button>
+                <button type="button" [buttonBusy]="saving" [busyText]="l('SavingWithThreeDot')"
+                    class="btn btn-primary fw-bold" [disabled]="saving" (click)="save()">
+                    <i class="fa fa-save"></i>
+                    <span>{{ 'Save' | localize }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

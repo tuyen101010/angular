@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\I3T.CRM.Common\I3T.CRM.Common.csproj" />
+    <ProjectReference Include="..\I3T.CRM.EntityFrameworkCore\I3T.CRM.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

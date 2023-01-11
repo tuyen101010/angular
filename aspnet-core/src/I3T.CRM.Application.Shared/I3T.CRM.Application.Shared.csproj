@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props"></Import>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>I3T.CRM</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Abp.Web.Common" Version="7.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\I3T.CRM.Common\I3T.CRM.Common.csproj" />
+    <ProjectReference Include="..\I3T.CRM.Core.Shared\I3T.CRM.Core.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
